@@ -78,6 +78,16 @@ class SiswaController extends Controller
 
     // 5. PROSES UPDATE (Update)
     public function update(Request $request, $id) {
+         $request->validate([
+            'nis' => 'required|unique:attendance_dubes_siswa,nis,' .$id. ",id_siswa",
+            'nama' => 'required',
+        ], [
+            // Pesan Error Custom (Bahasa Indonesia)
+            'nis.unique' => 'Gagal! NIS :input sudah terdaftar di sistem.',
+            'nis.required' => 'NIS wajib diisi.',
+            'nama.required' => 'Nama wajib diisi.',
+        ]);
+
         DB::table('attendance_dubes_siswa')->where('id_siswa', $id)->update([
             'nis' => $request->nis,
             'nama' => $request->nama,

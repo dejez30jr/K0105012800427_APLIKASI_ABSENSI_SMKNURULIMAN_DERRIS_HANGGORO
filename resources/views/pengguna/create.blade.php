@@ -1,12 +1,26 @@
 <x-app-layout>
     @include('components.sidebar')
 
+
+    <!-- === code create pengunna === -->
     <div class="ml-64 p-10 min-h-screen bg-gray-50">
-        <div class="mb-8 border-b border-gray-200 pb-4">
+        <div class="mb-8 border-b border-gray-200 pb-4"> 
+            
+        @if ($errors->any())
+            <div class="mb-6 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                <strong class="font-bold">Gagal Menyimpan!</strong>
+                <ul class="mt-2 list-disc list-inside text-sm">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
             <h2 class="text-3xl font-black text-gray-900">Tambah Pengguna Baru</h2>
         </div>
 
-        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm max-w-2xl">
+        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm w-full">
             <form action="{{ route('pengguna.store') }}" method="POST">
                 @csrf
                 <div class="mb-6">
@@ -29,8 +43,10 @@
                     </select>
                 </div>
                 <div class="flex gap-4">
-                    <button type="submit" class="bg-black text-white px-6 py-3 rounded-lg font-bold hover:bg-gray-800">Simpan</button>
-                    <a href="{{ route('pengguna.index') }}" class="bg-gray-100 text-gray-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-200">Batal</a>
+                    <button type="submit"
+                        class="bg-black text-white px-6 py-3 rounded-lg font-bold hover:bg-gray-800">Simpan</button>
+                    <a href="{{ route('pengguna.index') }}"
+                        class="bg-gray-100 text-gray-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-200">Batal</a>
                 </div>
             </form>
         </div>

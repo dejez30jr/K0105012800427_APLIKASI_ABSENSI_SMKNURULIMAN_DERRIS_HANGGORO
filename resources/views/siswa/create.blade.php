@@ -1,6 +1,7 @@
 <x-app-layout>
     @include('components.sidebar')
 
+    <!-- === create siswa === -->
     <div class="ml-64 p-10 min-h-screen bg-gray-50">
         <div class="mb-8 border-b border-gray-200 pb-4">
             <h2 class="text-3xl font-black text-gray-900">Tambah Siswa Baru</h2>
@@ -17,7 +18,7 @@
             </div>
         @endif
 
-        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm max-w-2xl">
+        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm w-full">
             <form action="{{ route('siswa.store') }}" method="POST">
                 @csrf
                 
@@ -41,6 +42,7 @@
                             <option value="XI RPL">XI RPL</option>
                             <option value="XII RPL">XII RPL</option>
                             <option value="XII AK">XII AK</option>
+                            <option value="add_kelas">Tambah Kelas+</option>
                         </select>
                     </div>
                     <div class="w-1/2">

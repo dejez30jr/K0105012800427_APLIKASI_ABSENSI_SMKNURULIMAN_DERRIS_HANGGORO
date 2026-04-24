@@ -1,6 +1,7 @@
 <x-app-layout>
     @include('components.sidebar')
 
+    <!-- === index pengunna === -->
     <div class="ml-64 p-10 min-h-screen bg-gray-50">
         
         <div class="flex justify-between items-center mb-6">

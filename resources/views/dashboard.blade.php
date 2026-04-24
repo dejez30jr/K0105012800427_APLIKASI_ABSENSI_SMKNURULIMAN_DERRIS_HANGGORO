@@ -1,6 +1,8 @@
 <x-app-layout>
     @include('components.sidebar')
 
+    <!-- === dashbaerd ==== -->
+
     <div class="ml-64 p-10 min-h-screen bg-gray-50">
         
         <div class="mb-8 flex justify-between items-end">
