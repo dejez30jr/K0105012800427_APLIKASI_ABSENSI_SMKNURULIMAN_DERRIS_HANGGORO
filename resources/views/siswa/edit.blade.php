@@ -39,11 +39,9 @@
                         <label class="block font-bold mb-2 text-sm text-gray-700">Kelas</label>
                         <select name="kelas"
                             class="w-full border-gray-300 rounded-lg p-3 focus:ring-black focus:border-black">
-                            <option value="X RPL" {{ $siswa->id_kelas == 'X RPL' ? 'selected' : '' }}>X RPL</option>
-                            <option value="XI RPL" {{ $siswa->id_kelas == 'XI RPL' ? 'selected' : '' }}>XI RPL</option>
-                            <option value="XII RPL" {{ $siswa->id_kelas == 'XII RPL' ? 'selected' : '' }}>XII RPL
-                            </option>
-                            <option value="XII AK" {{ $siswa->id_kelas == 'XII AK' ? 'selected' : '' }}>XII AK</option>
+                            @foreach ($datakelas as $dk)
+                                <option value="{{ $dk->nama_kelas }}" {{ $siswa->id_kelas == '' ? 'selected' : '' }}>{{ $dk->nama_kelas }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="w-1/2">

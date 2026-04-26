@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request) {
         // 1. Filter Limit, Kelas, dan Search
+        $datakelas = DB::table('kelas_siswa')->get(); // Ambil data kelas untuk dropdown
         $limit = $request->input('limit', 10);
         $kelas = $request->input('kelas');
         $search = $request->input('search');
@@ -50,7 +51,8 @@ class DashboardController extends Controller
             'limit' => $limit,
             'kelasSelected' => $kelas,
             'search' => $search,
-            'stats' => $stats // Kirim data statistik
+            'stats' => $stats, // Kirim data statistik
+            'datakelas' => $datakelas // Kirim data kelas untuk dropdown
         ]);
     }
 }

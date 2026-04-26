@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\kelas_siswa; // Model untuk tabel kelas_siswa
 
 class AbsensiController extends Controller
 {
     // 1. INDEX (Search + Limit + Filter Kelas + Sort Tanggal)
     public function index(Request $request) {
         // Ambil input (Default sort = desc/terbaru)
+        $datakelas = kelas_siswa::all(); // Ambil data kelas untuk dropdown
         $limit = $request->input('limit', 10);
         $search = $request->input('search');
         $kelas = $request->input('kelas');
@@ -36,6 +38,7 @@ class AbsensiController extends Controller
         $data = $query->paginate($limit)->withQueryString();
 
         return view('absensi.index', [
+            'datakelas' => $datakelas,
             'dataAbsensi' => $data, 
             'limit' => $limit,
             'search' => $search,

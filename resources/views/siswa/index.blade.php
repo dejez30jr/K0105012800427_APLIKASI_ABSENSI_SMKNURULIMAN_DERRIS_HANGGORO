@@ -44,10 +44,10 @@
                         <select name="kelas" onchange="this.form.submit()"
                             class="border-gray-300 rounded text-sm focus:ring-black focus:border-black cursor-pointer bg-gray-50 min-w-[120px]">
                             <option value="">Semua</option>
-                            <option value="X RPL" {{ $kelasSelected == 'X RPL' ? 'selected' : '' }}>X RPL</option>
-                            <option value="XI RPL" {{ $kelasSelected == 'XI RPL' ? 'selected' : '' }}>XI RPL</option>
-                            <option value="XII RPL" {{ $kelasSelected == 'XII RPL' ? 'selected' : '' }}>XII RPL</option>
-                            <option value="XII AK" {{ $kelasSelected == 'XII AK' ? 'selected' : '' }}>XII AK</option>
+                            @foreach ($datakelas as $dk)
+                            <option value="{{ $dk->nama_kelas }}" {{ $kelasSelected == '' ? 'selected' : '' }}>
+                                {{ $dk->nama_kelas }}</option>
+                            @endforeach
                         </select>
                     </div>
 

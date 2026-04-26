@@ -13,17 +13,17 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div class="bg-white p-6 rounded-xl border-l-4 border-yellow-400 shadow-sm">
+            <div class="bg-white p-6 rounded-r-xl border-l-4 border-yellow-400 shadow-sm">
                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Siswa Terlambat</p>
                 <p class="text-5xl font-black text-yellow-500 mt-2">{{ $stats['terlambat'] }}</p>
             </div>
             
-            <div class="bg-white p-6 rounded-xl border-l-4 border-green-500 shadow-sm">
+            <div class="bg-white p-6 rounded-r-xl border-l-4 border-green-500 shadow-sm">
                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Kehadiran Hari Ini</p>
                 <p class="text-5xl font-black text-green-600 mt-2">{{ $stats['hadir'] }}</p>
             </div>
 
-            <div class="bg-white p-6 rounded-xl border-l-4 border-red-500 shadow-sm">
+            <div class="bg-white p-6 rounded-r-xl border-l-4 border-red-500 shadow-sm">
                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Sakit / Izin / Alpha</p>
                 <p class="text-5xl font-black text-red-500 mt-2">{{ $stats['lainnya'] }}</p>
             </div>
@@ -48,9 +48,9 @@
                         <span class="text-xs font-bold text-gray-500">Kelas:</span>
                         <select name="kelas" onchange="this.form.submit()" class="border-gray-300 rounded text-sm bg-gray-50">
                             <option value="">Semua</option>
-                            <option value="X RPL" {{ $kelasSelected == 'X RPL' ? 'selected' : '' }}>X RPL</option>
-                            <option value="XI RPL" {{ $kelasSelected == 'XI RPL' ? 'selected' : '' }}>XI RPL</option>
-                            <option value="XII RPL" {{ $kelasSelected == 'XII RPL' ? 'selected' : '' }}>XII RPL</option>
+                            @foreach ($datakelas as $dk)
+                            <option value="{{ $dk->nama_kelas }}" {{ $kelasSelected == '' ? 'selected' : '' }}>{{ $dk->nama_kelas }}</option>    
+                            @endforeach
                         </select>
                     </div>
                 </div>

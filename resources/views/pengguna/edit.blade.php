@@ -7,7 +7,7 @@
             <h2 class="text-3xl font-black text-gray-900">Edit Pengguna</h2>
         </div>
 
-        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm max-w-2xl">
+        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm w-full">
             <form action="{{ route('pengguna.update', $user->id_users) }}" method="POST">
                 @csrf @method('PUT')
                 

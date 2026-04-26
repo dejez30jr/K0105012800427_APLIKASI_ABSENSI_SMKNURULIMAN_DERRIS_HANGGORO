@@ -7,37 +7,37 @@
 
         <nav class="p-4 space-y-2 mt-4">
             
-            <a href="{{ route('dashboard') }}" class="block px-4 py-3 rounded-lg text-sm transition-all {{ request()->routeIs('dashboard') ? 'bg-white text-black font-bold shadow-lg' : 'text-white hover:bg-white hover:text-black font-medium' }}">
+            <a href="{{ route('dashboard') }}" class="block px-4 py-3 rounded-lg text-sm transition-all {{ request()->routeIs('dashboard') ? 'bg-white text-black font-bold shadow-lg' : 'text-white hover:bg-white/10 hover:text-white font-medium' }}">
                 Home
             </a>
             
-            <a href="{{ route('absensi.index') }}" class="block px-4 py-3 rounded-lg text-sm transition-all {{ request()->routeIs('absensi.*') ? 'bg-white text-black font-bold shadow-lg' : 'text-white hover:bg-white hover:text-black font-medium' }}">
+            <a href="{{ route('absensi.index') }}" class="block px-4 py-3 rounded-lg text-sm transition-all {{ request()->routeIs('absensi.*') ? 'bg-white text-black font-bold shadow-lg' : 'text-white hover:bg-white/10 hover:text-white font-medium' }}">
                 Data Absensi
             </a>
 
-            <a href="{{ route('siswa.index') }}" class="block px-4 py-3 rounded-lg text-sm transition-all {{ request()->routeIs('siswa.*') ? 'bg-white text-black font-bold shadow-lg' : 'text-white hover:bg-white hover:text-black font-medium' }}">
+            <a href="{{ route('siswa.index') }}" class="block px-4 py-3 rounded-lg text-sm transition-all {{ request()->routeIs('siswa.*') ? 'bg-white text-black font-bold shadow-lg' : 'text-white hover:bg-white/10 hover:text-white font-medium' }}">
                 Data Siswa
             </a>
 
             @if(auth()->user()->role == 'admin')
-                <a href="{{ route('pengguna.index') }}" class="block px-4 py-3 rounded-lg text-sm transition-all {{ request()->routeIs('pengguna.*') ? 'bg-white text-black font-bold shadow-lg' : 'text-white hover:bg-white hover:text-black font-medium' }}">
+                <a href="{{ route('pengguna.index') }}" class="block px-4 py-3 rounded-lg text-sm transition-all {{ request()->routeIs('pengguna.*') ? 'bg-white text-black font-bold shadow-lg' : 'text-white hover:bg-white/10 hover:text-white font-medium' }}">
                     Pengguna (Admin)
                 </a>
             @endif
 
         </nav>
     </div>
-    
-    <div class="border-white/30">
+
+    <div class="bg-white/10 m-2 rounded-lg border border-white/30">
         
-        <div class="p-4 flex items-center gap-3">
+        <div class="p-4 flex border-b border-white/30 items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-bold text-lg">
                 {{ substr(auth()->user()->nama, 0, 1) }}
             </div>
             
             <div class="overflow-hidden">
                 <p class="text-sm font-bold text-white truncate">{{ auth()->user()->nama }}</p>
-                <p class="text-xs text-gray-500 uppercase tracking-wide">
+                <p class="text-xs text-gray-400 uppercase tracking-wide">
                     {{ auth()->user()->role }}
                 </p>
             </div>

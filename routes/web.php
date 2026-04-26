@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function () 
     Route::post('/siswa/simpan', [SiswaController::class, 'store'])->name('siswa.store');
     Route::get('/siswa/{id}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
     Route::put('/siswa/{id}', [SiswaController::class, 'update'])->name('siswa.update');
+    Route::post('/siswa/create/kelas', [SiswaController::class, 'storekelas'])->name('kelas.store');
     
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -50,6 +51,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function () 
         // 2. Hapus Data (Admin Only)
         // Petugas tidak boleh menghapus data siswa/absensi
         Route::delete('/siswa/{id}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+        Route::delete('/siswa/kelas/{id}', [SiswaController::class, 'kelasDestroy'])->name('kelas.destroy'); // Route untuk hapus kelas
         Route::delete('/absensi/{id}', [AbsensiController::class, 'destroy'])->name('absensi.destroy');
 
     });
