@@ -8,6 +8,22 @@ use Illuminate\Support\Facades\DB; // WAJIB: Panggil library Database
 
 class SiswaController extends Controller
 {
+
+
+    // tes api  
+    public function apiSiswa() {
+        $siswa = kelas_siswa::all();
+        return response()->json($siswa);
+    }
+
+    public function apiStore(Request $request) {
+        $validated = $request->validate([
+            'nama_kelas' => 'required|unique:kelas_siswa,nama_kelas',
+        ]);
+
+        $kelas = kelas_siswa::create($validated);
+        return response()->json('data berhasil di simpan');
+    }
     // 1. TAMPILKAN DAFTAR SISWA (Limit + Filter Kelas + Search)
     public function index(Request $request) {
         // Ambil input dari user (Default 10 jika kosong)
